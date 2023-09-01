@@ -117,4 +117,33 @@ submit.addEventListener('submit',(e)=>{
     console.log(`value value is : ${value_value}`);
 })
 
-console.log(window.history())
+let cart=[
+    {name:'mobile phone',
+     brand:'nokia',
+     price:46000
+},
+
+    {name:'duplicate',
+     brand:'nokia',
+     price:46000
+}
+]
+
+let new_cart=cart.map(item=>{
+    if(item.name==='mobile phone'){
+        return [item,{name:'free item',price:0}]
+    }else{
+        return [item];
+    }
+})
+console.log(new_cart);
+//using flat map here 
+
+let modified_new_cart=cart.flatMap(item=>{
+    if(item.name==='mobile phone'){
+        return [item,{name:'free item',price:0}]
+    }else{
+        return [item];
+    }
+})
+console.log(modified_new_cart);
